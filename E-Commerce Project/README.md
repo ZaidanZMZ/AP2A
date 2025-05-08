@@ -1,32 +1,36 @@
-# 🛍️ Java Product Management App
+# 🛒 Mini Project: Java E-Commerce App
 
-Selamat datang di repositori **Java Product Management App**, sebuah aplikasi sederhana berbasis OOP (Object-Oriented Programming) yang mengelola produk seperti pakaian dan elektronik dengan menggunakan konsep inheritance, encapsulation, dan method overriding dalam Java.
+Selamat datang di repositori **Mini Project: Java E-Commerce App**, sebuah aplikasi sederhana yang dirancang sebagai **tugas pembelajaran** untuk memahami **dasar-dasar OOP (Object-Oriented Programming)** dalam bahasa pemrograman Java. Proyek ini mencontohkan bagaimana membuat dan mengelola data produk seperti pakaian dan elektronik menggunakan konsep inheritance, encapsulation, dan polymorphism.
 
 ---
 
 ## 📚 Navigasi Cepat
 
-* [🧠 Penjelasan Program](#-penjelasan-program)
+* [📘 Deskripsi Proyek](#-deskripsi-proyek)
 * [🏗️ Struktur Kode](#-struktur-kode)
 
   * [1️⃣ Product.java](#1️⃣-productjava)
   * [2️⃣ Electronics.java](#2️⃣-electronicsjava)
   * [3️⃣ Clothing.java](#3️⃣-clothingjava)
   * [4️⃣ MainApp.java](#4️⃣-mainappjava)
-* [🔧 Alasan Penggunaan Modifier & Tipe Data](#-alasan-penggunaan-modifier--tipe-data)
+* [🛠️ Alasan Penggunaan Modifier & Tipe Data](#️-alasan-penggunaan-modifier--tipe-data)
 * [▶️ Cara Menjalankan Program](#️-cara-menjalankan-program)
 
 ---
 
-## 🧠 Penjelasan Program
+## 📘 Deskripsi Proyek
 
-Program ini menyimulasikan manajemen produk dengan 3 jenis objek:
+Proyek ini dibuat dalam rangka **latihan membuat aplikasi e-commerce sederhana**. Fokus utama adalah **implementasi konsep OOP**, bukan UI atau database. Program terdiri dari:
 
-* **Product** → kelas dasar.
-* **Electronics** → subclass dengan atribut `warrantyMonths`.
-* **Clothing** → subclass dengan atribut `size`.
+* **Product** sebagai class induk.
+* **Electronics** dan **Clothing** sebagai class turunan.
+* Class utama **MainApp** yang menjalankan logika dan simulasi aplikasi.
 
-Setiap class memiliki atribut yang **di-enkapsulasi (private)** dan diakses melalui **setter/getter**. Tujuannya: menjaga keamanan dan fleksibilitas data.
+Pengguna dapat:
+
+* Membuat objek produk.
+* Mengatur nama, harga, ID, dan atribut khusus.
+* Menampilkan informasi produk ke konsol.
 
 ---
 
@@ -40,9 +44,9 @@ private double price;
 private int productId;
 ```
 
-* Modifier `private` digunakan agar atribut hanya bisa diubah lewat method (`setter/getter`).
-* Getter dan setter `protected` agar subclass dapat mengaksesnya.
-* `getInfo()` digunakan untuk mencetak informasi produk.
+* Class dasar untuk semua produk.
+* Menggunakan `private` agar atribut hanya bisa diakses melalui setter/getter.
+* `protected` digunakan pada method agar subclass dapat mengaksesnya tanpa membuka akses ke luar class.
 
 ### 2️⃣ Electronics.java
 
@@ -50,8 +54,9 @@ private int productId;
 private int warrantyMonths;
 ```
 
-* Menambahkan atribut khusus untuk barang elektronik.
-* Override method `getInfo()` agar informasi garansi bisa ditampilkan.
+* Subclass dari Product.
+* Menambahkan atribut `warrantyMonths`.
+* Override `getInfo()` agar bisa menampilkan informasi garansi elektronik.
 
 ### 3️⃣ Clothing.java
 
@@ -59,8 +64,9 @@ private int warrantyMonths;
 private String size;
 ```
 
-* Menambahkan atribut ukuran pakaian.
-* Override method `getInfo()` untuk menampilkan ukuran.
+* Subclass dari Product.
+* Menambahkan atribut `size`.
+* Override `getInfo()` untuk mencetak ukuran pakaian.
 
 ### 4️⃣ MainApp.java
 
@@ -70,19 +76,21 @@ Electronics elektronik = new Electronics();
 Clothing polo = new Clothing();
 ```
 
-* Membuat objek, mengatur nilainya dengan setter, dan mencetak data.
+* Membuat objek produk.
+* Mengatur data dengan setter.
+* Mencetak informasi produk ke konsol menggunakan `getInfo()`.
 
 ---
 
-## 🔧 Alasan Penggunaan Modifier & Tipe Data
+## 🛠️ Alasan Penggunaan Modifier & Tipe Data
 
-| Elemen              | Alasan                                                            |
-| ------------------- | ----------------------------------------------------------------- |
-| `private` attribute | Enkapsulasi data agar tidak bisa diakses langsung dari luar class |
-| `protected` method  | Dapat diakses dari subclass tanpa membuat semuanya public         |
-| `String`            | Menyimpan nama atau ukuran produk sebagai teks                    |
-| `double`            | Menyimpan harga karena memiliki nilai desimal                     |
-| `int`               | ID produk dan jumlah garansi (bulan) hanya butuh bilangan bulat   |
+| Elemen              | Penjelasan                                                            |
+| ------------------- | --------------------------------------------------------------------- |
+| `private` attribute | Untuk menjaga enkapsulasi dan mencegah akses langsung dari luar class |
+| `protected` method  | Agar subclass bisa mewarisi dan mengakses method dari class induk     |
+| `String`            | Tipe data untuk nama produk dan ukuran pakaian                        |
+| `double`            | Cocok untuk menyimpan harga dengan nilai desimal                      |
+| `int`               | Dipakai untuk ID produk dan masa garansi                              |
 
 ---
 
@@ -90,15 +98,15 @@ Clothing polo = new Clothing();
 
 ### ✅ Langkah-langkah:
 
-1. **Pastikan Java telah terinstal**.
-2. Simpan semua file `.java` (Product.java, Electronics.java, Clothing.java, MainApp.java) di satu folder.
-3. Buka terminal/command prompt di folder tersebut.
-4. Compile semua file:
+1. Pastikan Java Development Kit (JDK) telah terinstal.
+2. Simpan semua file `.java` (Product.java, Electronics.java, Clothing.java, MainApp.java) di dalam satu folder.
+3. Buka terminal/command prompt, navigasikan ke folder tersebut.
+4. Compile semua file Java:
 
    ```bash
    javac *.java
    ```
-5. Jalankan program:
+5. Jalankan program utama:
 
    ```bash
    java MainApp
@@ -127,9 +135,9 @@ Size : M
 
 ## 📌 Catatan Tambahan
 
-* Kamu dapat menambahkan produk lain dengan membuat subclass baru.
-* Bisa dikembangkan dengan database, GUI, atau REST API ke depannya.
+* Proyek ini dapat dikembangkan dengan menambahkan fitur seperti: filter produk, daftar belanja, atau koneksi database.
+* Sangat cocok untuk latihan implementasi OOP sebelum masuk ke level yang lebih kompleks (seperti GUI/Android/web).
 
 ---
 
-Created with ❤️ by \[Zaidan Zaki Maksudi].
+Created with ❤️ for educational purposes.
