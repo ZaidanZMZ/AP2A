@@ -112,4 +112,4 @@ Berfungsi sebagai entry point (`main` method). Dalam file ini:
 
 ## 🧑‍💻 Author
 
-Program ini dibuat sebagai contoh sederhana untuk memahami dasar-dasar OOP dalam Java.
+Program ini dibuat dalam rangka tugas membuat project kecil sebagai contoh sederhana untuk memahami dasar-dasar OOP dalam Java.
