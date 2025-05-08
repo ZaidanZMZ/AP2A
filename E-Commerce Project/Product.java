@@ -1,15 +1,19 @@
+// Penjelasan Lengkap Pada file "README.md" !!
 public class Product {
-    protected String name;
-    protected double price;
-    protected  int productId;
+    // attributes utama!
+    private String name;
+    private double price;
+    private int productId;
 
-    // constructor  
+
+    // constructor (nilai default)
     protected Product() {
       this.name = "Unknown";
       this.price = 0.0;
       this.productId = 0;
     }
     
+
     // getters
     protected String getName() {
       return name;
@@ -22,6 +26,7 @@ public class Product {
     protected int getProductId() {
       return productId;
     }
+
 
     // setters
     protected void setName(String name) {
@@ -36,8 +41,9 @@ public class Product {
       this.productId = productId;
     }
 
-    // Output Shirt
-    public void getInfo() {
+
+    // output nama dan harga produk!
+    protected void getInfo() {
       System.out.println(getName() + " - " + getPrice() + " Euro");
     }
-  }
+}

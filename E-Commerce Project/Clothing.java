@@ -1,11 +1,10 @@
+// Penjelasan Lengkap Pada file "README.md" !!
 public class Clothing extends Product {
+    // attributes tambahan! (size)
     private String size;
 
-    // constructor
+    // constructor untuk atribut tambahan size! (default)
     protected Clothing() {
-        this.name = "Unknown";
-        this.price = 0.00;
-        this.productId = 0;
         this.size = "Unknown";
     }
 
@@ -14,8 +13,8 @@ public class Clothing extends Product {
         this.size = size;
     }
 
-    // getters
-    public void getInfo() {
+    // getters override method getInfo() dari class Product
+    protected void getInfo() {
         System.out.print("Size : " + size);
     }
 }
