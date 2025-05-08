@@ -1,115 +1,223 @@
+# 📦 Java Product Inheritance Project
 
-# Java Inheritance Example: Product Management
+> Sebuah contoh sederhana program Java OOP (Object-Oriented Programming) yang menggunakan konsep inheritance (pewarisan), encapsulation (enkapsulasi), dan access modifiers (`private`, `protected`, `public`).
 
-Proyek ini merupakan contoh implementasi konsep **inheritance** (pewarisan) dalam bahasa pemrograman Java. Di dalamnya terdapat kelas dasar `Product`, serta dua kelas turunan `Electronics` dan `Clothing`, yang menunjukkan bagaimana pewarisan, enkapsulasi, dan polimorfisme dapat digunakan dalam desain sistem berorientasi objek.
+---
 
-## 📑 Navigasi Cepat
+## 📚 Navigasi
 
-- [📁 Struktur File](#-struktur-file)
-- [📌 Penjelasan Kode](#-penjelasan-kode)
-  - [Product.java](#1-productjava)
-  - [Electronics.java](#2-electronicsjava)
-  - [Clothing.java](#3-clothingjava)
-  - [MainApp.java](#4-mainappjava)
-- [▶️ Cara Menjalankan Aplikasi](#️-cara-menjalankan-aplikasi)
-- [📚 Konsep OOP yang Digunakan](#-konsep-oop-yang-digunakan)
-- [📦 Catatan Tambahan](#-catatan-tambahan)
-- [🧑‍💻 Author](#-author)
+* [📁 Struktur Proyek](#-struktur-proyek)
+* [🧠 Penjelasan Logika Program](#-penjelasan-logika-program)
+* [🔍 Penjelasan Kode & Alasan Penggunaan Sintaks](#-penjelasan-kode--alasan-penggunaan-sintaks)
 
-## 📁 Struktur File
+  * [1. MainApp.java](#1-mainappjava)
+  * [2. Product.java](#2-productjava)
+  * [3. Electronics.java](#3-electronicsjava)
+  * [4. Clothing.java](#4-clothingjava)
+* [▶️ Cara Menjalankan Program](#️-cara-menjalankan-program)
 
-- `Product.java`: Kelas induk dasar yang merepresentasikan produk umum.
-- `Electronics.java`: Kelas turunan dari `Product` yang mewakili produk elektronik.
-- `Clothing.java`: Kelas turunan dari `Product` yang mewakili produk pakaian.
-- `MainApp.java`: Kelas utama untuk menjalankan program dan menampilkan informasi produk.
+---
 
-## 📌 Penjelasan Kode
+## 📁 Struktur Proyek
 
-### 1. `Product.java`
+```
+ProductInheritance/
+├── MainApp.java
+├── Product.java
+├── Electronics.java
+├── Clothing.java
+└── README.md
+```
 
-Kelas dasar `Product` memiliki properti:
-- `name`: Nama produk (String)
-- `price`: Harga produk (double)
-- `productId`: ID produk (int)
+---
 
-Semua atribut dan metode menggunakan modifier **`protected`**, artinya:
-- Dapat diakses oleh kelas turunan dan kelas dalam paket yang sama.
-- Berguna untuk melindungi data dari akses luar sembarangan, namun tetap bisa digunakan di subclass.
+## 🧠 Penjelasan Logika Program
 
-Metode `getInfo()` menampilkan informasi singkat produk: nama dan harga.
+Program ini mendemonstrasikan **pewarisan class di Java**:
 
-### 2. `Electronics.java`
+* `Product` adalah **kelas induk** dengan atribut dasar sebuah produk: `name`, `price`, dan `productId`.
+* `Electronics` dan `Clothing` adalah **subclass** yang mewarisi `Product`, tetapi menambahkan atribut baru: `warrantyMonths` dan `size`.
+* Kelas `MainApp` membuat objek-objek dari semua class tersebut, lalu menyetel dan menampilkan informasi produk dengan menggunakan **setter, getter**, dan **method override** (`getInfo`).
 
-Merupakan subclass dari `Product`. Menambahkan atribut baru:
-- `warrantyMonths`: Masa garansi (int)
+---
 
-Konstruktor memberi nilai default garansi 12 bulan.
+## 🔍 Penjelasan Kode & Alasan Penggunaan Sintaks
 
-Metode `getInfo()` di-*override* untuk menampilkan masa garansi elektronik.
+### 1. MainApp.java
 
-### Alasan Penggunaan:
-- `int` cocok untuk merepresentasikan bulan karena nilainya numerik dan tidak perlu desimal.
-- Overriding `getInfo()` memungkinkan mencetak informasi spesifik elektronik.
+```java
+public class MainApp {
+    public static void main(String[] args) {
+        Product shirt = new Product();
+        Electronics elektronik = new Electronics();
+        Clothing polo = new Clothing();
+        
+        shirt.setName("Shirt");
+        shirt.setPrice(25.80);
+        shirt.setProductId(1);
 
-### 3. `Clothing.java`
+        elektronik.setName("Laptop");
+        elektronik.setPrice(999.99);
+        elektronik.setProductId(1);
+        elektronik.setWarrantyMonths(3);
 
-Subclass dari `Product`. Menambahkan atribut baru:
-- `size`: Ukuran pakaian (String), seperti "M", "L", dll.
+        polo.setName("Polo");
+        polo.setPrice(9.99);
+        polo.setProductId(1);
+        polo.setSize("M");
 
-Konstruktor memberi nilai default "Unknown".
+        System.out.println("---Shirt---");
+        shirt.getInfo();
 
-Metode `getInfo()` di-*override* untuk menampilkan ukuran pakaian.
+        System.out.println("\n---Electronics---");
+        System.out.println("Name : " + elektronik.getName() + "\nPrice : " + elektronik.getPrice() + "\nId : " + elektronik.getProductId());
+        elektronik.getInfo();
 
-### Alasan Penggunaan:
-- `String` digunakan untuk ukuran karena biasanya berupa huruf (bukan angka).
-- Enkapsulasi menjaga agar nilai `size` tidak langsung diakses dari luar kelas.
+        System.out.println("\n---Clothing---");
+        System.out.println("Name : " + polo.getName() + "\nPrice : " + polo.getPrice() + "\nId : " + polo.getProductId());
+        polo.getInfo();
+    }
+}
+```
 
-### 4. `MainApp.java`
+✅ *Penjelasan:*
 
-Berfungsi sebagai entry point (`main` method). Dalam file ini:
-- Dibuat objek dari masing-masing kelas (`Product`, `Electronics`, `Clothing`)
-- Properti diset melalui setter.
-- Informasi dicetak ke konsol menggunakan `System.out.println()` dan `getInfo()`.
+* `public static void main(String[] args)` adalah titik awal eksekusi program Java.
+* Objek dibuat dari class dengan constructor default, lalu disetel dengan setter.
 
-## ▶️ Cara Menjalankan Aplikasi
+### 2. Product.java
 
-### Prasyarat:
-- JDK (Java Development Kit) telah terinstal di komputer Anda.
-- Kompatibel dengan JDK 8 ke atas.
+```java
+public class Product {
+    private String name;
+    private double price;
+    private int productId;
 
-### Langkah-Langkah:
+    protected Product() {
+        this.name = "Unknown";
+        this.price = 0.0;
+        this.productId = 0;
+    }
 
-1. **Kompilasi Semua File**
-   Jalankan perintah berikut di terminal dari direktori tempat file `.java` disimpan:
+    protected String getName() { return name; }
+    protected double getPrice() { return price; }
+    protected int getProductId() { return productId; }
 
-   ```bash
-   javac Product.java Electronics.java Clothing.java MainApp.java
-   ```
+    protected void setName(String name) { this.name = name; }
+    protected void setPrice(double price) { this.price = price; }
+    protected void setProductId(int productId) { this.productId = productId; }
 
-2. **Jalankan Program**
-   Setelah berhasil dikompilasi, jalankan kelas utama:
+    protected void getInfo() {
+        System.out.println(getName() + " - " + getPrice() + " Euro");
+    }
+}
+```
 
-   ```bash
-   java MainApp
-   ```
+✅ *Penjelasan:*
 
-3. **Output**
-   Anda akan melihat informasi tentang:
-   - Produk umum (Shirt)
-   - Produk elektronik (Laptop)
-   - Produk pakaian (Polo Shirt)
+* Semua atribut dibuat `private` untuk **encapsulation**, agar tidak bisa diakses langsung.
+* Getter dan setter dibuat `protected` agar bisa diakses oleh subclass (seperti `Electronics`, `Clothing`).
+* Method `getInfo()` menampilkan nama dan harga produk, dapat dioverride di subclass.
 
-## 📚 Konsep OOP yang Digunakan
+### 3. Electronics.java
 
-- **Inheritance**: `Electronics` dan `Clothing` mewarisi atribut dan metode dari `Product`.
-- **Encapsulation**: Atribut dilindungi melalui modifier `protected`, dan diakses via getter/setter.
-- **Polymorphism**: Metode `getInfo()` di-*override* untuk menampilkan informasi spesifik sesuai jenis produk.
+```java
+public class Electronics extends Product {
+    private int warrantyMonths;
 
-## 📦 Catatan Tambahan
+    protected Electronics() {
+        this.warrantyMonths = 12;
+    }
 
-- Anda bisa mengembangkan program ini dengan menambahkan lebih banyak jenis produk.
-- Modifier `protected` dipilih untuk memberikan akses kepada subclass, tetapi tetap menjaga enkapsulasi dari kelas luar.
+    protected void setWarrantyMonths(int warrantyMonths) {
+        this.warrantyMonths = warrantyMonths;
+    }
 
-## 🧑‍💻 Author
+    protected void getInfo() {
+        System.out.println("Warranty : " + warrantyMonths + " Months");
+    }
+}
+```
 
-Program ini dibuat dalam rangka tugas membuat project kecil sebagai contoh sederhana untuk memahami dasar-dasar OOP dalam Java.
+✅ *Penjelasan:*
+
+* Menambahkan atribut baru `warrantyMonths` dengan default `12`.
+* Override method `getInfo()` untuk menampilkan informasi garansi.
+
+### 4. Clothing.java
+
+```java
+public class Clothing extends Product {
+    private String size;
+
+    protected Clothing() {
+        this.size = "Unknown";
+    }
+
+    protected void setSize(String size) {
+        this.size = size;
+    }
+
+    protected void getInfo() {
+        System.out.print("Size : " + size);
+    }
+}
+```
+
+✅ *Penjelasan:*
+
+* Tambahan atribut `size`.
+* Override method `getInfo()` untuk menampilkan ukuran baju.
+
+---
+
+## ▶️ Cara Menjalankan Program
+
+### 1. **Kompilasi Semua File**
+
+Pastikan Anda berada di folder yang berisi file `.java` tersebut, lalu jalankan:
+
+```bash
+javac *.java
+```
+
+### 2. **Menjalankan Program**
+
+Setelah berhasil dikompilasi, jalankan:
+
+```bash
+java MainApp
+```
+
+### 3. **Output yang Diharapkan**
+
+```text
+---Shirt---
+Shirt - 25.8 Euro
+
+---Electronics---
+Name : Laptop
+Price : 999.99
+Id : 1
+Warranty : 3 Months
+
+---Clothing---
+Name : Polo
+Price : 9.99
+Id : 1
+Size : M
+```
+
+---
+
+## 📌 Catatan Tambahan
+
+* Jika semua atribut dibuat `private`, pastikan ada getter dan setter (minimal `protected`) untuk akses di subclass.
+* Kelas tidak bisa dijadikan `private` jika kelas tersebut adalah **top-level class**.
+* Gunakan `protected` untuk memberikan akses ke subclass, tanpa membuat atribut atau method sepenuhnya `public`.
+
+---
+
+Selesai ✅
+
+Jika ingin menambahkan fitur baru seperti diskon produk, kategori barang, atau ekspor ke file, silakan lanjutkan proyek ini 🚀
