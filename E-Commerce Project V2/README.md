@@ -11,7 +11,7 @@ Sistem belanja online sederhana berbasis **Object-Oriented Programming (OOP)** d
 ## 📚 Daftar Isi
 
 - [🎯 Tujuan](#-tujuan)
-- [⚙️ Fitur Utama](#-fitur-utama)
+- [⚙️ Fitur Utama](#%EF%B8%8F-fitur-utama)
 - [🧠 Penjelasan Sintaks dan Logika](#-penjelasan-sintaks-dan-logika)
   - [1. Struktur Class](#1-struktur-class)
   - [2. Modifier Akses](#2-modifier-akses)
