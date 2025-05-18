@@ -149,10 +149,3 @@ Harga Diskon : Rp225000.0
 - **NPM: 51424398**
 
 ---
-
-## 💬 Kontribusi & Feedback
-
-Silakan fork atau pull request jika ingin memberikan kontribusi tambahan!  
-Untuk pertanyaan atau laporan bug, silakan buka *Issue*.
-
----
