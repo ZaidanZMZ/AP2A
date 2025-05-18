@@ -1,4 +1,4 @@
-# 🛒 Online Shopping System (OOP Java)
+# 🛒 E-Commerce Project V2 (OOP Java)
 
 [![Java](https://img.shields.io/badge/Java-17-blue.svg)](https://www.java.com/)
 ![Status](https://img.shields.io/badge/status-complete-brightgreen)
