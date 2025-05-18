@@ -1,7 +1,6 @@
 # 🛒 Online Shopping System (OOP Java)
 
 [![Java](https://img.shields.io/badge/Java-17-blue.svg)](https://www.java.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Status](https://img.shields.io/badge/status-complete-brightgreen)
 ![Contributions](https://img.shields.io/badge/contributions-welcome-lightgrey)
 
@@ -48,16 +47,16 @@ Sistem belanja online sederhana berbasis **Object-Oriented Programming (OOP)** d
 
 ### 1. Struktur Class
 
+```
 OnlineShoppingSystem2/
-├── Product.java // Abstract class produk
-├── Electronics.java // Subclass + inner class Specification
-├── Clothing.java // Subclass + enum Size
-├── Size.java // Enum ukuran pakaian
-├── Discountable.java // Interface diskon
-├── MainApp.java // Main program
-└── README.md // Dokumentasi ini
-
----
+├── Product.java           // Abstract class produk
+├── Electronics.java       // Subclass + inner class Specification
+├── Clothing.java          // Subclass + enum Size
+├── Size.java              // Enum ukuran pakaian
+├── Discountable.java      // Interface diskon
+├── MainApp.java           // Main program
+└── README.md              // Dokumentasi ini
+```
 
 ### 2. Modifier Akses
 
@@ -70,8 +69,6 @@ OnlineShoppingSystem2/
 > Encapsulation diterapkan penuh: semua atribut `private`, diakses via getter/setter.  
 > Modifier `protected` digunakan untuk method seperti `getCategory()`.
 
----
-
 ### 3. Tipe Data dan Objek
 
 - `String`: untuk nama produk, merek, ukuran
@@ -79,18 +76,15 @@ OnlineShoppingSystem2/
 - `LocalDateTime`: untuk waktu pembuatan produk (menggunakan `java.time`)
 - `Size`: enum untuk memastikan ukuran terbatas pada pilihan XS–XL
 
----
-
 ### 4. Polymorphism & Interface
 
 ```java
 Product p = new Electronics(...);
 Discountable d = (Discountable) p;
+```
 
-*Penggunaan interface memungkinkan pemanggilan getDiscountedPrice() tanpa tahu tipe produk-nya.
-*Product sebagai superclass bisa menyimpan objek dari subclass apapun (polymorphism).
-
----
+- Penggunaan `interface` memungkinkan pemanggilan `getDiscountedPrice()` tanpa tahu tipe produk-nya.
+- `Product` sebagai superclass bisa menyimpan objek dari subclass apapun (polymorphism).
 
 ### 5. Enum dan Inner Class
 
@@ -98,16 +92,18 @@ Discountable d = (Discountable) p;
 public enum Size {
     XS, S, M, L, XL
 }
+```
 
-*Membatasi ukuran hanya ke pilihan valid, mencegah input asal.
+- Membatasi ukuran hanya ke pilihan valid, mencegah input asal.
 
-```javas
+```java
 public class Specification {
     private double weight;
     private String brand;
 }
+```
 
-*Specification adalah inner class dari Electronics, menyimpan info teknis produk.
+- `Specification` adalah **inner class** dari `Electronics`, menyimpan info teknis produk.
 
 ---
 
@@ -115,21 +111,19 @@ public class Specification {
 
 ### 1. Kompilasi Semua File
 
-'''bash
+```bash
 javac *.java
-
----
+```
 
 ### 2. Jalankan Program
 
-'''bash
+```bash
 java MainApp
-
----
+```
 
 ### Output Contoh:
 
-'''yaml
+```
 === PRODUK 1 ===
 Kategori     : Electronics
 Laptop Lenovo - Rp13000000.0
@@ -145,11 +139,20 @@ Hoodie Polos - Rp250000.0
 Dibuat pada  : 2025-05-17 22:13:45
 Ukuran       : L
 Harga Diskon : Rp225000.0
+```
 
 ---
 
 ## 👥 Anggota Kelompok
 
-*Zaidan Zaki Maksudi
-*NPM: 51424398
+- **Zaidan Zaki Maksudi**
+- **NPM: 51424398**
 
+---
+
+## 💬 Kontribusi & Feedback
+
+Silakan fork atau pull request jika ingin memberikan kontribusi tambahan!  
+Untuk pertanyaan atau laporan bug, silakan buka *Issue*.
+
+---
