@@ -1,94 +1,78 @@
-# 🛍️ Online Shop - Java GUI App
+# 🛒 Online Shop GUI - Java Swing
 
-![Java](https://img.shields.io/badge/Java-Swing-blue?style=for-the-badge&logo=java)
-![Maven](https://img.shields.io/badge/Build-Maven-informational?style=for-the-badge&logo=apachemaven)
-![Status](https://img.shields.io/badge/Status-Active-green?style=for-the-badge)
-
-A simple desktop application that simulates an **Online Shopping System** built using **Java Swing**, supporting product management and purchase transactions.
+Proyek ini merupakan simulasi **sistem toko online** berbasis desktop yang dibuat menggunakan bahasa pemrograman Java dengan antarmuka GUI (Graphical User Interface) menggunakan **Java Swing**. Aplikasi ini memungkinkan pengguna untuk menambah produk, mencari produk berdasarkan ID, melakukan transaksi pembelian, dan melihat daftar pembelian pelanggan.
 
 ---
 
-## 🖥️ Features
+## ✨ Fitur Utama
 
-✅ Add new products (Clothing & Electronics)  
-✅ Search product by ID  
-✅ View product list dynamically  
-✅ Buy products with customer name  
-✅ View all customer purchase history  
-✅ Auto-update ComboBox & Tables  
-✅ Input validation with clear error prompts
-
----
-
-## 📸 Screenshots
-
-| Add Product                          | Purchase Product                      | Product Table & Purchase History     |
-|-------------------------------------|---------------------------------------|--------------------------------------|
-| ![Add](https://via.placeholder.com/200x120.png?text=Add+Product) | ![Buy](https://via.placeholder.com/200x120.png?text=Buy+Product) | ![Table](https://via.placeholder.com/200x120.png?text=Table+View) |
+- Tambah produk dengan kategori:
+  - 📱 Elektronik (dengan masa garansi)
+  - 👕 Fashion (dengan ukuran: S, M, L, XL)
+- Cari produk berdasarkan ID
+- Transaksi pembelian oleh pelanggan
+- Tabel daftar produk dan pembelian
+- Validasi input untuk menghindari kesalahan
 
 ---
 
-## 🛠️ Technologies Used
+## 🧠 Cara Kerja Program
 
-- Java 23 (JDK)
-- Java Swing
-- Maven for build automation
-- OOP (Object-Oriented Design)
-- Exception Handling
-- Collections Framework (`Map`, `Set`)
+1. **Menambahkan Produk**
+   - Pengguna mengisi ID produk, nama, harga, dan info tambahan (garansi/ukuran).
+   - Setelah diklik tombol **Tambah Produk**, produk ditambahkan ke daftar dan combo box pemilihan produk.
 
----
+2. **Pencarian Produk**
+   - Pengguna memasukkan ID produk.
+   - Program mencari produk di `ProductManager` dan menampilkan informasi detail melalui `JOptionPane`.
 
-## 🚀 How to Run
+3. **Transaksi Pembelian**
+   - Pengguna memilih produk dan mengisi nama pelanggan.
+   - Setelah klik **Buy**, produk dicatat ke dalam `TransactionManager` sesuai nama pelanggan.
+   - Tabel pembelian diperbarui secara otomatis.
 
-1. **Clone the repository**  
-```bash
-git clone https://github.com/yourusername/online_shop_gui.git
-cd online_shop_gui
-```
-
-2. **Build using Maven**  
-```bash
-mvn clean compile
-```
-
-3. **Run the app**
-```bash
-mvn exec:java -Dexec.mainClass="zaidanzakizmz.com.online_shop.MainApp"
-```
-
-> ✅ Make sure you have Java 17+ and Maven installed.
+4. **Manajemen Data**
+   - Semua data disimpan dalam memori menggunakan struktur koleksi Java seperti `List` dan `Map`.
+   - Setiap pelanggan menyimpan produk dalam `Set` agar tidak duplikat.
 
 ---
 
-## 🧩 Project Structure
+## 🛠 Teknologi
 
-```
-src/
-└── main/
-    └── java/
-        └── zaidanzakizmz/
-            └── com/
-                └── online_shop/
-                    ├── MainApp.java
-                    ├── Product.java
-                    ├── Clothing.java
-                    ├── Electronics.java
-                    ├── Size.java
-                    ├── ProductManager.java
-                    ├── TransactionManager.java
-                    └── ProductNotFoundException.java
-```
+- Java 17+
+- Maven
+- Java Swing (GUI)
+- OOP: Inheritance, Polymorphism, Encapsulation
 
 ---
 
-## 👤 Author
+## 📂 Struktur Paket
 
-Built with ❤️ by **Zaidan Zaki Maksudi**  
-🔗 GitHub: [zaidanzakizmz](https://github.com/zaidanzakizmz)
+zaidanzakizmz.com.online_shop
+├── MainApp.java // GUI utama
+├── Product.java // Kelas abstrak produk
+├── Clothing.java // Produk fashion (extends Product)
+├── Electronics.java // Produk elektronik (extends Product)
+├── ProductManager.java // Manajemen produk
+├── TransactionManager.java // Manajemen transaksi pembelian
+├── ProductNotFoundException.java
+├── Size.java // Enum untuk ukuran baju
+
+yaml
+Copy
+Edit
 
 ---
 
-## 📄 License
+## 📌 Catatan
 
-This project is for educational use only. No license specified.
+- Proyek ini hanya menyimpan data sementara (tidak menggunakan database).
+- Diperlukan Java versi terbaru agar program dapat berjalan optimal.
+
+---
+
+## 👤 Dibuat oleh
+
+**Zaidan Zaki Maksudi**
+
+> Proyek ini dibuat sebagai bagian dari tugas kuliah [Algoritma dan Pemrograman II].  
