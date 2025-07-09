@@ -1,3 +1,4 @@
+
 # 🛒 Online Shop GUI - Java Swing
 
 Proyek ini merupakan simulasi **sistem toko online** berbasis desktop yang dibuat menggunakan bahasa pemrograman Java dengan antarmuka GUI (Graphical User Interface) menggunakan **Java Swing**. Aplikasi ini memungkinkan pengguna untuk menambah produk, mencari produk berdasarkan ID, melakukan transaksi pembelian, dan melihat daftar pembelian pelanggan.
@@ -48,19 +49,17 @@ Proyek ini merupakan simulasi **sistem toko online** berbasis desktop yang dibua
 
 ## 📂 Struktur Paket
 
+```
 zaidanzakizmz.com.online_shop
-├── MainApp.java // GUI utama
-├── Product.java // Kelas abstrak produk
-├── Clothing.java // Produk fashion (extends Product)
-├── Electronics.java // Produk elektronik (extends Product)
-├── ProductManager.java // Manajemen produk
-├── TransactionManager.java // Manajemen transaksi pembelian
+├── MainApp.java              // GUI utama
+├── Product.java              // Kelas abstrak produk
+├── Clothing.java             // Produk fashion (extends Product)
+├── Electronics.java          // Produk elektronik (extends Product)
+├── ProductManager.java       // Manajemen produk
+├── TransactionManager.java   // Manajemen transaksi pembelian
 ├── ProductNotFoundException.java
-├── Size.java // Enum untuk ukuran baju
-
-yaml
-Copy
-Edit
+├── Size.java                 // Enum untuk ukuran baju
+```
 
 ---
 
@@ -75,4 +74,4 @@ Edit
 
 **Zaidan Zaki Maksudi**
 
-> Proyek ini dibuat sebagai bagian dari tugas kuliah [Algoritma dan Pemrograman II].  
+> Proyek ini dibuat sebagai bagian dari tugas kuliah [Algoritma dan Pemrograman II].
