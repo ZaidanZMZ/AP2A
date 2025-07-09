@@ -67,6 +67,7 @@ zaidanzakizmz.com.online_shop
 
 - Proyek ini hanya menyimpan data sementara (tidak menggunakan database).
 - Diperlukan Java versi terbaru agar program dapat berjalan optimal.
+- Diperlukan aplikasi NetBeans karena program belum dijadikan executable.
 
 ---
 
